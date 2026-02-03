@@ -2,3 +2,16 @@ from flask import Flask
 
 existing_models = ['Beedle', 'Crossroads', 'M2', 'Panique']
 
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "<h1>Welcome to Flatiron Cars</h1>"
+
+@app.route('/<model>')
+def model(model):
+    if model in existing_models:
+        return f'Flatiorn {model} is in our fleet!'
+    else:
+        return f'No models called {model} exists in our catalog'
+
